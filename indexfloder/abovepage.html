@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SD College of Information Technology</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f8f9fc;
+      color: #333;
+    }
+
+    .navbar {
+      background-color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      color: #333;
+    }
+
+    .navbar .logo img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .navbar nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .navbar nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .banner-section {
+      background: url('https://images.unsplash.com/photo-1573164574396-e04c0f3f8e73?auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .banner-section::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    .banner-text {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+
+    .banner-text h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .banner-text p {
+      font-size: 1.2rem;
+    }
+
+    section {
+      padding: 50px 10%;
+      background-color: #fff;
+    }
+
+    section:nth-of-type(even) {
+      background-color: #f9f9fc;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+      align-items: flex-start;
+    }
+
+    .about-text-block {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about-highlight {
+      background-color: #f5f7ff;
+      padding: 15px 20px;
+      border-left: 4px solid #4f46e5;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .about-text-block p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .about-image {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .leadership {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  max-width: 700px;
+}
+
+
+
+    .leader-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      text-align: center;
+    }
+
+    .leader-card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 15px auto;
+    }
+
+    .facilities {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .facility {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px #ccc;
+      text-align: center;
+    }
+
+    .facility img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 0 auto;
+    }
+
+    .facility h4 {
+      margin: 10px 0 5px;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .testimonial {
+      background: white;
+      padding: 20px;
+      border-left: 4px solid #4f46e5;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ddd;
+    }
+
+    .cta {
+      background: #fef2f2;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer {
+      background: #fff;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #eee;
+    }
+
+    input[type="email"] {
+      padding: 8px;
+      margin-top: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .subscribe-btn {
+      padding: 8px 14px;
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      margin-left: 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .navbar nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      input[type="email"], .subscribe-btn {
+        width: 100%;
+      }
+
+      .about-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="SDCIT Logo" />
+      SDCIT
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="groups.html">Groups</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#infrastructure">Infrastructure</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Banner -->
+  <section class="banner-section">
+    <div class="banner-text">
+      <h1>Welcome to Sarojini Devi College of Information Technology</h1>
+      <p>Shaping Future Leaders in Technology & Business for a Dynamic World.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Our Esteemed Institution</h2>
+    <div class="about-container">
+      <div class="about-text-block">
+        <div class="about-highlight">
+          Sarojini Devi College of Information Technology (co-education) was established in 2001 with the MCA course.
+        </div>
+        <p>Initially affiliated to Andhra University, SDCIT later affiliated to Adikavi Nannaya University in 2016. The college is managed by the Sri Venkata Krishna Educational Society,  a purely service-oriented organization dedicated to catering to the education needs of the rural and semi-urban student community.</p>
+        <p>SDCIT boasts state-of-the-art infrastructure and comprehensive curricular and co-curricular facilities, providing a conducive environment for student growth. Our institution is proud to have excellent experienced faculty who relentlessly strive for the overall development of every student on campus, ensuring academic rigor and personal enrichment.</p>
+      </div>
+      <div class="about-image">
+        <img src="t.jpg" alt="College Campus">
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership -->
+<section id="leadership">
+  <h2>Visionary Leadership</h2>
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Leader 1 -->
+      <div class="col-md-5 m-2 p-4 bg-white rounded shadow text-center">
+        <img src="chi.jpeg" alt="Sri Chitturi Subba Rao" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+        <h3>Sri Chitturi Subba Rao</h3>
+        <p><em><b>Founder</b></em><br>The visionary founder has established numerous educational institutions, aiming to empower rural youth. Honored with Padmashri for educational services.</p>
+      </div>
+      
+      <!-- Leader 2 -->
+      <div class="col-md-5 m-2 p-4 bg-white rounded shadow text-center">
+        <img src="sf.jpg" alt="Smt. Chitturi Satya Usha Rani" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+        <h3>Smt. Chitturi Satya Usha Rani</h3>
+        <p><em><b>SECRETARY & CORRESPONDENT</b></em><br>She has propelled SDCIT to excellence through efficient administration and her commitment to academic quality and holistic student development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Infrastructure -->
+  <section id="infrastructure">
+  <h2>Our State-of-the-Art Infrastructure</h2>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="facility card h-100 text-center p-3">
+          <img src="Library.jpg" class="card-img-top rounded" alt="Library" />
+          <h4 class="mt-3">Central Library</h4>
+          <p>Extensive collection of books, journals, and digital resources.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="facility card h-100 text-center p-3">
+          <img src="Computerlab.jpg" class="card-img-top rounded" alt="Computer Lab" />
+          <h4 class="mt-3">Advanced Computer Lab</h4>
+          <p>High-speed internet and modern systems for all computing needs.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="facility card h-100 text-center p-3">
+          <img src="about projector.jpg" class="card-img-top rounded" alt="Classrooms" />
+          <h4 class="mt-3">Modern Classrooms</h4>
+          <p>Interactive whiteboards, projectors, and ergonomic seating.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="facility card h-100 text-center p-3">
+          <img src="about meeting room.jpg" class="card-img-top rounded" alt="Conference Hall" />
+          <h4 class="mt-3">Conference Hall</h4>
+          <p>Venue for seminars, guest lectures, and academic events.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="facility card h-100 text-center p-3">
+          <img src="05_ Indoor Stadium.jpg" class="card-img-top rounded" alt="Sports Facilities" />
+          <h4 class="mt-3">Sports Facilities</h4>
+          <p>Multi-purpose sports ground for holistic student growth.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="facility card h-100 text-center p-3">
+          <img src="about page student.jpg" class="card-img-top rounded" alt="Support Services" />
+          <h4 class="mt-3">Student Support Services</h4>
+          <p>Counseling, mentoring, and career guidance programs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What Our Students Say</h2>
+    <div class="testimonials">
+      <div class="testimonial"><p>“SDCIT provided me with a robust foundation in computer applications and exceptional faculty support. The practical exposure I gained was invaluable for my career.”</p></div>
+      <div class="testimonial"><p>“The MBA program here is top-notch. The curriculum is industry-relevant, and the exposure to real-world business cases through seminars and workshops prepared me perfectly.”</p></div>
+      <div class="testimonial"><p>“The vibrant campus life, coupled with excellent infrastructure, made my learning journey truly enjoyable. I highly recommend SDCIT to anyone looking for holistic growth.”</p></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <h2>Ready to Join SDCIT?</h2>
+    <p>Reach out today to learn more about admissions, programs, and campus life.</p>
+    <a href="contact.html" class="btn btn-primary">Contact Admissions</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white text-white py-5">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center text-center text-md-start">
+      <div class="mb-4 mb-md-0">
+        <img src="logo.png" alt="College Logo" width="100" class="mb-3" />
+        <div class="d-flex justify-content-center justify-content-md-start gap-3">
+          <a href="#" style="color: #d2a373;"><i class="bi bi-twitter fs-4"></i></a>
+          <a href="#" style="color: #d2a373;"><i class="bi bi-facebook fs-4"></i></a>
+          <a href="#" style="color: #d2a373;"><i class="bi bi-instagram fs-4"></i></a>
+        </div>
+      </div>
+      <div style="color: #333;">
+        <h5 class="fw-bold" style="color: #b4e197; font-family: 'Brush Script MT', cursive;">Contacts</h5>
+        <p><i class="bi bi-telephone-fill me-2" style="color: #b4e197;"></i> 08819229742 / 9908252508</p>
+        <p><i class="bi bi-envelope-fill me-2" style="color: #b4e197;"></i> info@svke.net</p>
+        <p><i class="bi bi-geo-alt-fill me-2" style="color: #b4e197;"></i> 10-16-39, Peravali Rd, Old Town, Tanuku, AP</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
